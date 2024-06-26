@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.9.2
+- https://www.phpmyadmin.net
+-
+- Host: 127.0.0.1:3308
+- Generation Time: Jun 12, 2023 at 03:20 PM
+- Server version: 8.0.18
+- PHP Version: 7.3.12
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="abccompany" collation="utf8mb4_0900_ai_ci" charset="utf8mb4">
+            <pma:table name="booking">
+                CREATE TABLE `booking` (
+                  `bookingId` int(100) NOT NULL AUTO_INCREMENT,
+                  `startDate` varchar(60) NOT NULL,
+                  `endDate` varchar(60) NOT NULL,
+                  `bill` double NOT NULL,
+                  `nic` varchar(12) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                  `idHall` varchar(11) NOT NULL,
+                  `bookingtype` varchar(60) NOT NULL,
+                  PRIMARY KEY (`bookingId`),
+                  KEY `nic` (`nic`),
+                  KEY `idHall` (`idHall`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="customer">
+                CREATE TABLE `customer` (
+                  `nic` varchar(12) NOT NULL,
+                  `name` varchar(100) NOT NULL,
+                  `tel` varchar(10) NOT NULL,
+                  `email` varchar(100) NOT NULL,
+                  PRIMARY KEY (`nic`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="customerlogin">
+                CREATE TABLE `customerlogin` (
+                  `loginId` int(11) NOT NULL AUTO_INCREMENT,
+                  `nic` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                  `password` varchar(100) NOT NULL,
+                  PRIMARY KEY (`loginId`),
+                  UNIQUE KEY `username` (`nic`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="hall">
+                CREATE TABLE `hall` (
+                  `idHall` varchar(11) NOT NULL,
+                  `size` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                  PRIMARY KEY (`idHall`)
+                ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="payment">
+                CREATE TABLE `payment` (
+                  `paymentId` int(100) NOT NULL AUTO_INCREMENT,
+                  `method` varchar(10) NOT NULL,
+                  `paidDate` varchar(12) NOT NULL,
+                  `bookingId` int(11) NOT NULL,
+                  PRIMARY KEY (`paymentId`),
+                  KEY `bookingId` (`bookingId`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="specificday">
+                CREATE TABLE `specificday` (
+                  `specificDayId` int(11) NOT NULL AUTO_INCREMENT,
+                  `bookingId` int(11) NOT NULL,
+                  `specificDay` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+                  PRIMARY KEY (`specificDayId`),
+                  KEY `bookingId` (`bookingId`)
+                ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'abccompany'
+    -->
+    <database name="abccompany">
+        <!-- Table booking -->
+        <table name="booking">
+            <column name="bookingId">25</column>
+            <column name="startDate">2023-05-05</column>
+            <column name="endDate">2023-05-15</column>
+            <column name="bill">1100000</column>
+            <column name="nic">1111</column>
+            <column name="idHall">h28</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">23</column>
+            <column name="startDate">2023-05-04</column>
+            <column name="endDate">2023-05-24</column>
+            <column name="bill">2100000</column>
+            <column name="nic">112</column>
+            <column name="idHall">we</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">26</column>
+            <column name="startDate">2023-05-04</column>
+            <column name="endDate">2023-05-05</column>
+            <column name="bill">75000</column>
+            <column name="nic">12</column>
+            <column name="idHall">w2</column>
+            <column name="bookingtype">Specific Day</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">28</column>
+            <column name="startDate">2023-05-02</column>
+            <column name="endDate">2023-05-04</column>
+            <column name="bill">300000</column>
+            <column name="nic">112</column>
+            <column name="idHall">h56</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">29</column>
+            <column name="startDate">2023-05-05</column>
+            <column name="endDate">2023-05-10</column>
+            <column name="bill">600000</column>
+            <column name="nic">112</column>
+            <column name="idHall">h56</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">30</column>
+            <column name="startDate">2023-05-03</column>
+            <column name="endDate">2023-05-22</column>
+            <column name="bill">2000000</column>
+            <column name="nic">112</column>
+            <column name="idHall">h2</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">31</column>
+            <column name="startDate">2023-05-26</column>
+            <column name="endDate">2023-05-28</column>
+            <column name="bill">300000</column>
+            <column name="nic">112</column>
+            <column name="idHall">66</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">33</column>
+            <column name="startDate">2023-08-01</column>
+            <column name="endDate">2023-12-03</column>
+            <column name="bill">12500000</column>
+            <column name="nic">112</column>
+            <column name="idHall">h45</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">34</column>
+            <column name="startDate">2023-03-06</column>
+            <column name="endDate">2023-04-03</column>
+            <column name="bill">2900000</column>
+            <column name="nic">112</column>
+            <column name="idHall">61</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">35</column>
+            <column name="startDate">2020-05-04</column>
+            <column name="endDate">2020-05-15</column>
+            <column name="bill">1200000</column>
+            <column name="nic">112</column>
+            <column name="idHall">61</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">36</column>
+            <column name="startDate">2021-05-06</column>
+            <column name="endDate">2021-05-20</column>
+            <column name="bill">1500000</column>
+            <column name="nic">112</column>
+            <column name="idHall">61</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <table name="booking">
+            <column name="bookingId">38</column>
+            <column name="startDate">2023-06-01</column>
+            <column name="endDate">2023-06-15</column>
+            <column name="bill">700000</column>
+            <column name="nic">112</column>
+            <column name="idHall">h45</column>
+            <column name="bookingtype">Continues Period</column>
+        </table>
+        <!-- Table customer -->
+        <!-- Table customerlogin -->
+        <!-- Table hall -->
+        <table name="hall">
+            <column name="idHall">h56</column>
+            <column name="size">LARGE</column>
+        </table>
+        <table name="hall">
+            <column name="idHall">h2</column>
+            <column name="size">LARGE</column>
+        </table>
+        <table name="hall">
+            <column name="idHall">h45</column>
+            <column name="size">SMALL</column>
+        </table>
+        <table name="hall">
+            <column name="idHall">h44</column>
+            <column name="size">LARGE</column>
+        </table>
+        <!-- Table payment -->
+        <table name="payment">
+            <column name="paymentId">17</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-28</column>
+            <column name="bookingId">7</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">18</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-28</column>
+            <column name="bookingId">10</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">19</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-28</column>
+            <column name="bookingId">26</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">20</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-28</column>
+            <column name="bookingId">26</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">21</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-29</column>
+            <column name="bookingId">23</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">22</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-29</column>
+            <column name="bookingId">29</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">23</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-29</column>
+            <column name="bookingId">28</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">24</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-29</column>
+            <column name="bookingId">30</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">25</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-05-31</column>
+            <column name="bookingId">33</column>
+        </table>
+        <table name="payment">
+            <column name="paymentId">26</column>
+            <column name="method">CASH</column>
+            <column name="paidDate">2023-06-08</column>
+            <column name="bookingId">40</column>
+        </table>
+        <!-- Table specificday -->
+        <table name="specificday">
+            <column name="specificDayId">9</column>
+            <column name="bookingId">26</column>
+            <column name="specificDay">SUNDAY</column>
+        </table>
+    </database>
+</pma_xml_export>
